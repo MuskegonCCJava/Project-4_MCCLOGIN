@@ -1,8 +1,8 @@
+/*MCCLogin_Main by Kyle Wolff and Brandon VanderMey 3/2/2015*/
+
 import java.awt.BorderLayout;
 
 import javax.swing.*;
-
-/*MCCLogin_Main by Kyle Wolff 3/2/2015*/
 
 
 public class MCCLogin_Main extends JFrame {
