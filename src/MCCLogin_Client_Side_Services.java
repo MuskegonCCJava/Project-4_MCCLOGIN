@@ -9,13 +9,13 @@ public class MCCLogin_Client_Side_Services
 	private StringBuilder username;
 	private StringBuilder password;
 	private StringBuilder message;
-	private int studentID;
+	private int studentNumber;
 	
 	
 	
 	
 	//	I added set and get methods for the username and password just incase we want to use them by themselves.  
-	//	Otherwise, they would just be burried into the "message" variable.
+	//	Otherwise, they would just be buried into the "message" variable.
 	public StringBuilder getUserName()
 	{
 		return username;
@@ -25,14 +25,13 @@ public class MCCLogin_Client_Side_Services
 	{
 		username = new StringBuilder();
 
-		//	I don't know if this is how she wants it done.  What I did was use a StringBuilder method, and in 
-		//	the parameters, I concatenated the whole thing.  Maybe we should do something like:
-		//	username.append(firstName.toLowerCase());
-		//	username.append(".");
-		//	username.append(lastName.toLowerCase());
-		//	
-		//	Instead of the code below (same with setting the password and message):
-		username.append(firstName.toLowerCase() + "." + lastName.toLowerCase());
+		username.append(firstName.toLowerCase());
+		username.append(lastName.toLowerCase());
+		
+		//	First parameter is the index number to where it inserts the string.  length() gives us the number of elements in firstName.
+		//	Since indexes start at 0, we don't need to increment the first parameter.
+		username.insert(firstName.length(), ".");
+		
 	}
 	
 	public StringBuilder getPassword()
@@ -44,12 +43,20 @@ public class MCCLogin_Client_Side_Services
 	{
 		password = new StringBuilder();
 		
-		password.append(firstName.toLowerCase().charAt(0) + lastName.toLowerCase().charAt(0) + studentID + "!");
+		password.append(firstName.toLowerCase().charAt(0));
+		password.append(lastName.toLowerCase().charAt(0));
+		password.append(studentNumber);
+		password.append("!");
 	}
 	
 	public StringBuilder getMessage()
 	{
-		message.append("Your user name is " + username + " and your password is " + password);
+		message = new StringBuilder();
+		
+		message.append("Your user name is ");
+		message.append(username);
+		message.append(" and your password is ");
+		message.append(password);
 		
 		return message;
 	}
