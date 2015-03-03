@@ -26,9 +26,9 @@ public class MCCLogin_Client_Side_Services {
 		
 		return lastName;
 	}
-	public void setlastName(String Lirst_Name){
+	public void setlastName(String Last_Name){
 		
-		lastName = Lirst_Name;
+		lastName = Last_Name;
 	}
 	public int getStudentNumber() {
 		
