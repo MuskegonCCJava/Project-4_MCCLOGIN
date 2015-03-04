@@ -10,8 +10,6 @@ public class MCC_Login_Panel extends JPanel {
 	private JLabel Firstname_Label; 
 	private JLabel Lastname_Label; 
 	private JLabel studentNumber_Label; 
-	private JLabel username_Label; 
-	private JLabel password_Label; 
 	
 	private JTextField Firstname_TField;
 	private JTextField Lastname_TField;
