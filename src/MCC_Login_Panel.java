@@ -48,6 +48,8 @@ public class MCC_Login_Panel extends JPanel {
 		submit_Button.setBackground(Color.decode("#0066FF"));
 		submit_Button.setBounds(204,200,80,30);
 		
+		submit_Button.addActionListener(new Submit());
+		
 		// I made a separate panel for the Image. This way it was easier to manipulate 
 		JPanel imagePanel = new JPanel();
 		ImageIcon MCCimage = new ImageIcon("MCC_Logo.png");
