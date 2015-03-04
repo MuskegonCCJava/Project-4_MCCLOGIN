@@ -45,7 +45,7 @@ public class MCC_Login_Panel extends JPanel {
 
 		
 		submit_Button = new JButton("Submit");
-		submit_Button.setBackground(Color.decode("#0066FF"));
+		submit_Button.setBackground(Color.decode("#00A3CC"));
 		submit_Button.setBounds(204,200,80,30);
 		
 		submit_Button.addActionListener(new Submit());
