@@ -1,4 +1,4 @@
-/* MCC_Login_Panel.java created by Brandon Vandermey 03/03/2015 */
+/* MCC_Login_Panel.java created by Kyle Wolff and Brandon VanderMey 03/03/2015 */
 
 import java.awt.Color;
 import java.awt.Rectangle;
@@ -55,7 +55,17 @@ public class MCC_Login_Panel extends JPanel {
 		imagePanel.setBackground(Color.yellow); // Set Background just in case the image was not sized correctly
 		imagePanel.setBounds(400,250,170,180);
 		
+		//
+		JPanel headerPanel = new JPanel();
+		ImageIcon headerIcon = new ImageIcon("Header.png");
 		
+		int imageWidth = headerIcon.getIconWidth();
+		int imageHeight = headerIcon.getIconHeight();
+		
+		headerPanel.add(new JLabel(headerIcon));
+		headerPanel.setBackground(Color.yellow);
+		headerPanel.setBounds((620 - imageWidth) / 2, 0, imageWidth, imageHeight);
+		//
 		
 		add(Firstname_Label);
 		add(Lastname_Label);
@@ -68,6 +78,8 @@ public class MCC_Login_Panel extends JPanel {
 		add(submit_Button);
 		
 		add(imagePanel);
+		
+		add(headerPanel);
 		
 		
 	}
