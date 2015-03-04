@@ -21,7 +21,7 @@ public class MCCLogin_Main extends JFrame {
 		
 		setTitle("MCC Username and Password");
 		setResizable(false);
-		setSize(700,500);
+		setSize(620,470);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
