@@ -44,71 +44,33 @@ public class MCC_Login_Panel extends JPanel {
 		Firstname_TField.addKeyListener(new KeyListener() {
 			
 			@Override
-			public void keyTyped(KeyEvent e) {
-				char i = e.getKeyChar();
-				
-				if (e.getKeyChar() != KeyEvent.VK_BACK_SPACE && e.getKeyChar() != KeyEvent.VK_DELETE) 
-				{
-				      // If the key was not a number then discard it (this is a sloppy way to check)
-				
-				      if (i == '.' || i == ',' || i == '0' || i == '1' || i == '2' || i == '3' || i == '4' ||
-				    		 i == '5' || i == '6'|| i == '7' || i == '8'|| i == '9' || e.getKeyChar() == KeyEvent.VK_SPACE)
-				      	{
-				    	  	Toolkit.getDefaultToolkit().beep(); // This line of code will make the computer beep sound 
-				    	  	e.consume();
-				      	}
-				}
-				
+			public void keyTyped(KeyEvent e) 
+			{
+				KeyListener(e);
 			}
 			
 			@Override
-			public void keyReleased(KeyEvent e) {
-			
-				
-			}
+			public void keyReleased(KeyEvent e) {}
 			
 			@Override
-			public void keyPressed(KeyEvent e) {
-				
-				
-			}
+			public void keyPressed(KeyEvent e) {}
 		});
-		
 			
-		
 		Lastname_TField = new JTextField();
 		Lastname_TField.setBounds(185,128,100,20);
-		Lastname_TField.addKeyListener(new KeyListener() {
-			
+		Lastname_TField.addKeyListener(new KeyListener() 
+		{
 			@Override
-			public void keyTyped(KeyEvent e) {
-				char i = e.getKeyChar();
-				
-				if (e.getKeyChar() != KeyEvent.VK_BACK_SPACE && e.getKeyChar() != KeyEvent.VK_DELETE) 
-				{
-				      // If the key was not a number then discard it (this is a sloppy way to check)
-				
-				      if (i == '.' || i == ',' || i == '0' || i == '1' || i == '2' || i == '3' || i == '4' ||
-				    		 i == '5' || i == '6'|| i == '7' || i == '8'|| i == '9')
-				      	{
-				    	  	Toolkit.getDefaultToolkit().beep();
-				    	  	e.consume();
-				      	}
-				}
-				
+			public void keyTyped(KeyEvent e) 
+			{
+				KeyListener(e);
 			}
 			
 			@Override
-			public void keyReleased(KeyEvent e) {
-			
-				
-			}
+			public void keyReleased(KeyEvent e) {}
 			
 			@Override
-			public void keyPressed(KeyEvent e) {
-				
-				
-			}
+			public void keyPressed(KeyEvent e) {}
 		});
 
 		studentNumber_TField = new JFormattedTextField(new MaskFormatter("#####")); 
@@ -152,10 +114,28 @@ public class MCC_Login_Panel extends JPanel {
 		add(submit_Button);
 		
 		add(imagePanel);
-		
 		add(headerPanel);
 		
 		
 	}
 	
+	public void KeyListener(KeyEvent e) 
+	{ 
+		char i = e.getKeyChar(); 
+		
+		// This takes the character "i" and explicitly casts it to an integer (UTF-16). 
+		int j = (int)i; 
+		
+		if (e.getKeyChar() != KeyEvent.VK_BACK_SPACE && e.getKeyChar() != KeyEvent.VK_DELETE) 
+		{ 
+			// 'A' through 'Z' is 65-90. 'a' through 'z' is 97-122. 
+			// Reason why there is a gap is because between 90 and 97 are 'Z[\]^_`a'. See where 'Z' ends and 'a' begins? 
+			// Pseudo code: If it is NOT an upper or lowercase letter OR a space, then consume that event (meaning nothing will happen). 
+			if ( !( ( (j >= 65 && j <= 90 ) || ( j >= 97 && j <= 122) ) || e.getKeyChar() == KeyEvent.VK_SPACE) ) 
+			{ 
+				Toolkit.getDefaultToolkit().beep(); // This line of code will make the computer beep sound 
+				e.consume(); 
+			} 
+		} 
+	} 
 }
