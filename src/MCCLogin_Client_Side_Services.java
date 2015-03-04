@@ -42,7 +42,7 @@ public class MCCLogin_Client_Side_Services {
 		studentNumber = Student_Number;
 	}
 	
-//	I added set and get methods for the username and password just incase we want to use them by themselves.  
+	//	I added set and get methods for the username and password just incase we want to use them by themselves.  
 	//	Otherwise, they would just be buried into the "message" variable.
 	public StringBuilder getUserName()
 	{
