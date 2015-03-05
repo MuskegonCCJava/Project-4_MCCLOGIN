@@ -22,7 +22,7 @@ public class MCCLogin_Client_Side_Services {
 		studentNumber = "99999";
 	}
 	
-	public MCCLogin_Client_Side_Services(String fnameIn, String lnameIn, String studentNumberIn)
+	public MCCLogin_Client_Side_Services(String fnameIn, String lnameIn, String studentNumberIn) throws URISyntaxException
 	{
 		firstName = fnameIn;
 		lastName = lnameIn;
