@@ -21,12 +21,13 @@ public class MCC_Login_Panel extends JPanel {
 	private JLabel Firstname_Label; 
 	private JLabel Lastname_Label; 
 	private JLabel studentNumber_Label; 
+	public static JLabel Message;
 	
 	public static JTextField Firstname_TField;
 	public static JTextField Lastname_TField;
 	public static JTextField studentNumber_TField;
 	
-	public JButton submit_Button; 
+	public static JButton submit_Button; 
 	
 	private MCCLogin_Client_Side_Services service = new MCCLogin_Client_Side_Services();
 
@@ -81,10 +82,10 @@ public class MCC_Login_Panel extends JPanel {
 			public void keyPressed(KeyEvent e) {}
 		});
 
-		studentNumber_TField = new JFormattedTextField(new MaskFormatter("#####")); 
+		studentNumber_TField = new JFormattedTextField(new MaskFormatter("#######")); 
 		// Limit the field to 5 digits
 		// Using this MaskFormatter the Frame and JPanel must throw ParseException when the user tries to go over the alloted amount
-		studentNumber_TField.setBounds(237,168,47,20);
+		studentNumber_TField.setBounds(232,168,53,20);
 		
 		submit_Button = new JButton("Submit");
 		submit_Button.setBackground(Color.decode("#00A3CC"));
@@ -139,9 +140,13 @@ public class MCC_Login_Panel extends JPanel {
 		headerPanel.setBounds((MCCLogin_Main.width - imageWidth) / 2, 0, imageWidth, imageHeight);
 		//
 		
+		Message = new JLabel();
+		Message.setBounds(20,320,380,30);
+		
 		add(Firstname_Label);
 		add(Lastname_Label);
 		add(studentNumber_Label);
+		add(Message);
 
 		add(Firstname_TField);
 		add(Lastname_TField);
