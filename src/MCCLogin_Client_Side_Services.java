@@ -1,3 +1,6 @@
+import java.net.URI;
+import java.net.URISyntaxException;
+
 //	MCCLogin_Client_Side_Services by Kyle Wolff and Brandon VanderMey on 3/2/2015
 
 
@@ -10,7 +13,9 @@ public class MCCLogin_Client_Side_Services {
 	private StringBuilder password;
 	private StringBuilder message;
 	
-	public MCCLogin_Client_Side_Services(){
+	final URI uri = new URI("https://mymcc.muskegoncc.edu/CookieAuth.dll?GetLogon?curl=Z2F&reason=0&formdir=1");
+	
+	public MCCLogin_Client_Side_Services() throws URISyntaxException {
 		
 		firstName = "MCC";
 		lastName = "Login";

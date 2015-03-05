@@ -1,10 +1,16 @@
 /* MCC_Login_Panel.java created by Kyle Wolff and Brandon VanderMey 03/03/2015 */
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.text.ParseException;
 
 import javax.swing.*;
@@ -21,8 +27,10 @@ public class MCC_Login_Panel extends JPanel {
 	public static JTextField studentNumber_TField;
 	
 	public JButton submit_Button; 
+	
+	private MCCLogin_Client_Side_Services service = new MCCLogin_Client_Side_Services();
 
-	public MCC_Login_Panel() throws ParseException
+	public MCC_Login_Panel() throws ParseException, URISyntaxException
 	{
 		this.setLayout(null);
 		this.setBackground(Color.yellow);
@@ -87,10 +95,37 @@ public class MCC_Login_Panel extends JPanel {
 		
 		// I made a separate panel for the Image. This way it was easier to manipulate 
 		JPanel imagePanel = new JPanel();
-		ImageIcon MCCimage = new ImageIcon("MCC_Logo.png");
+		ImageIcon MCCimage = new ImageIcon("MCCWeb.png");
 		imagePanel.add(new JLabel(MCCimage)); // The reason we chose a JLabel is because the add method only allows components to be added
 		imagePanel.setBackground(Color.yellow); // Set Background just in case the image was not sized correctly
-		imagePanel.setBounds(400,250,170,180);
+		imagePanel.setBounds(300,100,280,208);
+		imagePanel.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+				openBrowser(service.uri);
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+			
+				imagePanel.setBackground(Color.yellow);
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			
+				imagePanel.setBackground(Color.decode("#00A3CC"));
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {}
+			
+		});
 		
 		//
 		JPanel headerPanel = new JPanel();
@@ -101,7 +136,7 @@ public class MCC_Login_Panel extends JPanel {
 		
 		headerPanel.add(new JLabel(headerIcon));
 		headerPanel.setBackground(Color.yellow);
-		headerPanel.setBounds((620 - imageWidth) / 2, 0, imageWidth, imageHeight);
+		headerPanel.setBounds((MCCLogin_Main.width - imageWidth) / 2, 0, imageWidth, imageHeight);
 		//
 		
 		add(Firstname_Label);
@@ -139,4 +174,15 @@ public class MCC_Login_Panel extends JPanel {
 			} 
 		} 
 	} 
+	
+	private static void openBrowser(URI uri) {
+	    if (Desktop.isDesktopSupported()) 
+	    {
+	      try
+	      {
+	        Desktop.getDesktop().browse(uri);
+	      } catch (IOException e) { /* TODO: error handling */ }
+	    } else { /* TODO: error handling */ }
+	  }
+	
 }
