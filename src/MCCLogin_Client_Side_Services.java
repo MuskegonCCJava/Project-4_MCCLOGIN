@@ -5,7 +5,7 @@ public class MCCLogin_Client_Side_Services {
 
 	private String firstName; 
 	private String lastName;
-	private int studentNumber;
+	private String studentNumber;
 	private StringBuilder username;
 	private StringBuilder password;
 	private StringBuilder message;
@@ -14,7 +14,14 @@ public class MCCLogin_Client_Side_Services {
 		
 		firstName = "MCC";
 		lastName = "Login";
-		studentNumber = 99999;
+		studentNumber = "99999";
+	}
+	
+	public MCCLogin_Client_Side_Services(String fnameIn, String lnameIn, String studentNumberIn)
+	{
+		firstName = fnameIn;
+		lastName = lnameIn;
+		studentNumber = studentNumberIn;
 	}
 	
 	public String getfirstName(){
@@ -33,11 +40,11 @@ public class MCCLogin_Client_Side_Services {
 		
 		lastName = Last_Name;
 	}
-	public int getStudentNumber() {
+	public String getStudentNumber() {
 		
 		return studentNumber;
 	}
-	public void setStudentNumber(int Student_Number) {
+	public void setStudentNumber(String Student_Number) {
 		
 		studentNumber = Student_Number;
 	}

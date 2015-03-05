@@ -16,9 +16,9 @@ public class MCC_Login_Panel extends JPanel {
 	private JLabel Lastname_Label; 
 	private JLabel studentNumber_Label; 
 	
-	private JTextField Firstname_TField;
-	private JTextField Lastname_TField;
-	private JTextField studentNumber_TField;
+	public static JTextField Firstname_TField;
+	public static JTextField Lastname_TField;
+	public static JTextField studentNumber_TField;
 	
 	public JButton submit_Button; 
 
@@ -82,6 +82,7 @@ public class MCC_Login_Panel extends JPanel {
 		submit_Button.setBackground(Color.decode("#0066FF"));
 		submit_Button.setBounds(204,200,80,30);
 		
+		//	Add try and catch statements to catch null entries?
 		submit_Button.addActionListener(new Submit());
 		
 		// I made a separate panel for the Image. This way it was easier to manipulate 
