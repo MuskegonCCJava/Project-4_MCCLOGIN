@@ -58,6 +58,7 @@ public class MCCLogin_Client_Side_Services {
 	//	Otherwise, they would just be buried into the "message" variable.
 	public StringBuilder getUserName()
 	{
+		
 		return username;
 	}
 	
@@ -91,6 +92,9 @@ public class MCCLogin_Client_Side_Services {
 	
 	public StringBuilder getMessage()
 	{
+		setUserName();
+		setPassword();
+		
 		message = new StringBuilder();
 		
 		message.append("Your user name is ");
