@@ -1,6 +1,7 @@
 //	MCCLogin_Main.java by Kyle Wolff and Brandon VanderMey on 3/3/2015
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.net.URISyntaxException;
 import java.text.ParseException;
 
@@ -14,10 +15,27 @@ public class MCCLogin_Main extends JFrame {
 
 	public static void main(String[] args) throws ParseException, URISyntaxException {
 		
-		MCCLogin_Main frame = new MCCLogin_Main();
-		frame.setVisible(true);
-
-	}
+		EventQueue.invokeLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				try {
+					
+					MCCLogin_Main frame = new MCCLogin_Main();
+					frame.setVisible(true);
+					
+					} catch (ParseException e) {
+					
+					e.printStackTrace();
+				
+					} catch (URISyntaxException e) {
+					
+						e.printStackTrace();
+					}
+				}
+			});
+		}
 	
 	public MCCLogin_Main() throws ParseException, URISyntaxException{
 		
