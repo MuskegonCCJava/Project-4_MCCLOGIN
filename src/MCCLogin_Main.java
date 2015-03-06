@@ -56,7 +56,7 @@ public class MCCLogin_Main extends JFrame {
 		// We will place the panel in the center since we will be having a header panel 
 		// When you use add() , this is adding the panel to the frame since this is the constructor for the frame
 		
-		getRootPane().setDefaultButton(panel.submit_Button); // This will enable the Enter key to work with the button
+		getRootPane().setDefaultButton(MCC_Login_Panel.submit_Button); // This will enable the Enter key to work with the button
 	}
 
 }
