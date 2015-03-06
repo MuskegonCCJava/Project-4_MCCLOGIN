@@ -25,11 +25,10 @@ public class Submit implements ActionListener
 			lname = MCC_Login_Panel.Lastname_TField.getText();
 			studentnum = MCC_Login_Panel.studentNumber_TField.getText();
 			
-			StringBuffer emptyElements = new StringBuffer("       ");
 			
 			try {
 				
-				if(!(fname.isEmpty() || lname.isEmpty() || studentnum.contentEquals(emptyElements)))
+				if(!(fname.isEmpty() || lname.isEmpty() || studentnum.length() < MaxLengthTextDocument.maxChars))
 				{	
 					service = new MCCLogin_Client_Side_Services(fname, lname, studentnum);
 					StringBuilder serviceMessage = service.getMessage();

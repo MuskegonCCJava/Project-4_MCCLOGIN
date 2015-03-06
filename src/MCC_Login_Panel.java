@@ -16,6 +16,7 @@ import java.text.ParseException;
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 
+
 public class MCC_Login_Panel extends JPanel {
 	
 	private JLabel Firstname_Label; 
@@ -30,9 +31,10 @@ public class MCC_Login_Panel extends JPanel {
 	public static JButton submit_Button; 
 	
 	private MCCLogin_Client_Side_Services service = new MCCLogin_Client_Side_Services();
-
+	
 	public MCC_Login_Panel() throws ParseException, URISyntaxException
 	{
+		
 		this.setLayout(null);
 		this.setBackground(Color.yellow);
 		
@@ -50,41 +52,18 @@ public class MCC_Login_Panel extends JPanel {
 		// The TextFields are created and positioned 
 		Firstname_TField = new JTextField();
 		Firstname_TField.setBounds(185,88,100,20);
-		Firstname_TField.addKeyListener(new KeyListener() {
-			
-			@Override
-			public void keyTyped(KeyEvent e) 
-			{
-				KeyListener(e);
-			}
-			
-			@Override
-			public void keyReleased(KeyEvent e) {}
-			
-			@Override
-			public void keyPressed(KeyEvent e) {}
-		});
+		Firstname_TField.addKeyListener(new KeyListenerChar());
 			
 		Lastname_TField = new JTextField();
 		Lastname_TField.setBounds(185,128,100,20);
-		Lastname_TField.addKeyListener(new KeyListener() 
-		{
-			@Override
-			public void keyTyped(KeyEvent e) 
-			{
-				KeyListener(e);
-			}
-			
-			@Override
-			public void keyReleased(KeyEvent e) {}
-			
-			@Override
-			public void keyPressed(KeyEvent e) {}
-		});
+		Lastname_TField.addKeyListener(new KeyListenerChar());
 
-		studentNumber_TField = new JFormattedTextField(new MaskFormatter("#######")); 
-		// Limit the field to 5 digits
-		// Using this MaskFormatter the Frame and JPanel must throw ParseException when the user tries to go over the alloted amount
+		MaxLengthTextDocument max = new MaxLengthTextDocument();
+		max.setMaxChars(7); // Limit the field to 7 digits
+
+		studentNumber_TField = new JTextField();
+		studentNumber_TField.setDocument(max); // Using set Document this will restrict character length
+		studentNumber_TField.addKeyListener(new numberListener());
 		studentNumber_TField.setBounds(232,168,53,20);
 		
 		submit_Button = new JButton("Submit");
@@ -128,7 +107,7 @@ public class MCC_Login_Panel extends JPanel {
 			
 		});
 		
-		//
+		
 		JPanel headerPanel = new JPanel();
 		ImageIcon headerIcon = new ImageIcon("Header.png");
 		
@@ -138,10 +117,10 @@ public class MCC_Login_Panel extends JPanel {
 		headerPanel.add(new JLabel(headerIcon));
 		headerPanel.setBackground(Color.yellow);
 		headerPanel.setBounds((MCCLogin_Main.width - imageWidth) / 2, 0, imageWidth, imageHeight);
-		//
+		
 		
 		Message = new JLabel();
-		Message.setBounds(20,320,380,30);
+		Message.setBounds(20,320,500,30);
 		
 		add(Firstname_Label);
 		add(Lastname_Label);
@@ -159,26 +138,6 @@ public class MCC_Login_Panel extends JPanel {
 		
 		
 	}
-	
-	public void KeyListener(KeyEvent e) 
-	{ 
-		char i = e.getKeyChar(); 
-		
-		// This takes the character "i" and explicitly casts it to an integer (UTF-16). 
-		int j = (int)i; 
-		
-		if (e.getKeyChar() != KeyEvent.VK_BACK_SPACE && e.getKeyChar() != KeyEvent.VK_DELETE) 
-		{ 
-			// 'A' through 'Z' is 65-90. 'a' through 'z' is 97-122. 
-			// Reason why there is a gap is because between 90 and 97 are 'Z[\]^_`a'. See where 'Z' ends and 'a' begins? 
-			// Pseudo code: If it is NOT an upper or lowercase letter OR a space, then consume that event (meaning nothing will happen). 
-			if ( !( ( (j >= 65 && j <= 90 ) || ( j >= 97 && j <= 122) ) || e.getKeyChar() == KeyEvent.VK_SPACE) ) 
-			{ 
-				Toolkit.getDefaultToolkit().beep(); // This line of code will make the computer beep sound 
-				e.consume(); 
-			} 
-		} 
-	} 
 	
 	private static void openBrowser(URI uri) {
 	    if (Desktop.isDesktopSupported()) 

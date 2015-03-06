@@ -15,7 +15,8 @@ public class MCCLogin_Client_Side_Services {
 	
 	final URI uri = new URI("https://mymcc.muskegoncc.edu/CookieAuth.dll?GetLogon?curl=Z2F&reason=0&formdir=1");
 	
-	public MCCLogin_Client_Side_Services() throws URISyntaxException {
+	public MCCLogin_Client_Side_Services() throws URISyntaxException 
+	{
 		
 		firstName = "MCC";
 		lastName = "Login";
