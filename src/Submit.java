@@ -25,7 +25,6 @@ public class Submit implements ActionListener
 			lname = MCC_Login_Panel.Lastname_TField.getText();
 			studentnum = MCC_Login_Panel.studentNumber_TField.getText();
 			
-			
 			try {
 				
 				if((!(fname.isEmpty() || lname.isEmpty() || studentnum.length() < MaxLengthTextDocument.maxChars)))
@@ -36,9 +35,7 @@ public class Submit implements ActionListener
 					MCC_Login_Panel.Message.setText(message);
 					
 					MCC_Login_Panel.Message.setBounds(20,320,MCC_Login_Panel.Message.getPreferredSize().width, 30);
-					System.out.print(MCC_Login_Panel.Message.getPreferredSize().width);
 			
-					
 				}
 				else
 				{
