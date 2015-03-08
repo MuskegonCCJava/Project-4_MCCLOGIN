@@ -34,8 +34,8 @@ public class Submit implements ActionListener
 					String message = String.valueOf(serviceMessage);
 					MCC_Login_Panel.Message.setText(message);
 					
-					MCC_Login_Panel.Message.setBounds(20,320,MCC_Login_Panel.Message.getPreferredSize().width, 30);
-			
+					MCC_Login_Panel.Message.setBounds(20,320,MCC_Login_Panel.Message.getPreferredSize().width,
+															 MCC_Login_Panel.Message.getPreferredSize().height);
 				}
 				else
 				{
@@ -48,10 +48,6 @@ public class Submit implements ActionListener
 				
 					e1.printStackTrace();
 				}
-			
-			
-
 		}
 	}
-
 }
