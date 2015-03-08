@@ -35,7 +35,7 @@ public class Submit implements ActionListener
 					MCC_Login_Panel.Message.setText(message);
 					
 					MCC_Login_Panel.Message.setBounds(20,320,MCC_Login_Panel.Message.getPreferredSize().width,
-															 MCC_Login_Panel.Message.getPreferredSize().height);
+													         MCC_Login_Panel.Message.getPreferredSize().height);
 				}
 				else
 				{
