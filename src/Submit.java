@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class Submit implements ActionListener
 {
 	
-	MCCLogin_Client_Side_Services service;
+	static MCCLogin_Client_Side_Services service;
 	String fname;
 	String lname;
 	String studentnum;
@@ -28,12 +28,17 @@ public class Submit implements ActionListener
 			
 			try {
 				
-				if(!(fname.isEmpty() || lname.isEmpty() || studentnum.length() < MaxLengthTextDocument.maxChars))
+				if((!(fname.isEmpty() || lname.isEmpty() || studentnum.length() < MaxLengthTextDocument.maxChars)))
 				{	
 					service = new MCCLogin_Client_Side_Services(fname, lname, studentnum);
 					StringBuilder serviceMessage = service.getMessage();
 					String message = String.valueOf(serviceMessage);
 					MCC_Login_Panel.Message.setText(message);
+					
+					MCC_Login_Panel.Message.setBounds(20,320,MCC_Login_Panel.Message.getPreferredSize().width, 30);
+					System.out.print(MCC_Login_Panel.Message.getPreferredSize().width);
+			
+					
 				}
 				else
 				{

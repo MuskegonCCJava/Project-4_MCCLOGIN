@@ -118,9 +118,7 @@ public class MCC_Login_Panel extends JPanel {
 		headerPanel.setBackground(Color.yellow);
 		headerPanel.setBounds((MCCLogin_Main.width - imageWidth) / 2, 0, imageWidth, imageHeight);
 		
-		
 		Message = new JLabel();
-		Message.setBounds(20,320,500,30);
 		
 		add(Firstname_Label);
 		add(Lastname_Label);
