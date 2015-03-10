@@ -12,6 +12,7 @@ public class MCCLogin_Main extends JFrame {
 	// Extends JFrame is essentially making the Main file a JFrame 
 	public static int width = 620;
 	public static int height = 440;
+	// This is a comment
 
 	public static void main(String[] args) throws ParseException, URISyntaxException {
 		
@@ -32,6 +33,7 @@ public class MCCLogin_Main extends JFrame {
 					} catch (URISyntaxException e) {
 					
 						e.printStackTrace();
+				
 					}
 				}
 			});
