@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.net.URISyntaxException;
 import java.text.ParseException;
+import java.util.Date;
 
 import javax.swing.*;
 
@@ -14,6 +15,9 @@ public class MCCLogin_Main extends JFrame {
 	public static int height = 440;
 
 	public static void main(String[] args) throws ParseException, URISyntaxException {
+		
+		Date time = new Date();
+		JOptionPane.showMessageDialog(null, "Welcome to MCCLogin By Kyle Wolff and Brandon Vandermey on " + time);
 		
 		EventQueue.invokeLater(new Runnable() {
 			
